@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="head">
+        <div class="title">
+            <h1>{{title}}</h1>
+        </div>
+        <div class="subtitle">
+            Create tasks to add to the list, and check them off when they're done.
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="incomplete">
+            <h3>Incomplete Tasks</h3>
+            <ul>
+                <li *ngFor="let task of tasks">{{task.title}}<button id="remove" (click) = "removeTask(task)">Done</button></li>
+            </ul>
+            <input type="text" #newTask> <button id="add" (click) = "addTask(newTask)">Add</button>
+        </div>
+        <div class="completed">
+            <h3>Completed Tasks</h3>
+            <ul>
+                <li *ngFor="let task of complTasks"><del #thisTask>{{task.title}}</del><button id="readd"  (click) ="reAddTask(thisTask)" >Re-add</button></li>
+            </ul>
+        </div>
+    </div>
+</div>
